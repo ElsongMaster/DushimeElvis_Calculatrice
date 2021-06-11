@@ -1,3 +1,6 @@
+body {
+  background: url("./img/ocre.jpg");
+}
 .bodyContent {
   height: 80vh;
   width: 100vw;
@@ -8,30 +11,35 @@
 h1 {
   text-align: center;
   text-decoration: underline;
-  color: rgb(83, 83, 83);
+  color: rgb(119, 25, 25);
 }
 .Content-calculate {
   display: flex;
   flex-direction: column;
   background-color: rgb(83, 83, 83);
-  width: 200px;
+  width: fit-content;
   justify-content: center;
   align-items: center;
+  background-image: url("../css/img/lionBis.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 input {
   margin-top: 10px;
-  height: 30px;
+  height: 40px;
+  width: 80%;
 }
 .contentBtn {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(50px, auto);
   margin: 10px;
   height: auto;
-  width: 140px;
+  width: auto;
 }
 
 .contentBtn button {
-  margin: 5px;
-  min-width: 15px !important;
+  border-radius: 5px;
 }

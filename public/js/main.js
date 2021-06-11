@@ -3,29 +3,29 @@ let btn_clear;
 let btn_suppr;
 let btn_equal;
 let tab_btnExpression = [];
+let btn_Calculatrice;
 
 let funct_create_btn = () => {
-  let btn_Calculatrice = [
+  btn_Calculatrice = [
     "C",
     "suppr",
     "%",
-
+    "/",
     "7",
     "8",
     "9",
-    "/",
+    "*",
     "4",
     "5",
     "6",
-    "*",
+    "-",
     "1",
     "2",
     "3",
+    "=",
     "0",
-    "-",
     ".",
     "+",
-    "=",
   ];
   let btn;
   let text;
@@ -63,7 +63,7 @@ let divContentBtn = document.createElement("div");
 let bodyContent = document.createElement("div");
 bodyContent.className = "bodyContent";
 let title = document.createElement("h1");
-title.textContent = "Calculatrice du turfu";
+title.textContent = "Calculatrice ElsonG";
 divContentBtn.className = "contentBtn";
 //ajout des attributs (margin, color)
 tab_Btn.forEach((elt) => {
@@ -72,7 +72,7 @@ tab_Btn.forEach((elt) => {
     "display:inline-block; margin: 5px; text-align:center;"
   );
   if (isNaN(elt.textContent)) {
-    elt.setAttribute("style", "color:white");
+    elt.setAttribute("style", "color:blue");
   } else {
     elt.setAttribute("style", "color:grey");
   }
@@ -99,6 +99,13 @@ tab_btnExpression.forEach((elt) => {
   });
 });
 
+let tab_number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+//ecoute du clavier
+inputField.addEventListener("keyup", (e) => {
+  if (!tab_number.includes(e.key)) {
+    inputField.value = inputField.value.replace(e.key, "");
+  }
+});
 btn_equal.addEventListener("click", () => {
   let rep;
   try {
