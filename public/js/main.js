@@ -1,6 +1,6 @@
 let tab_Btn = [];
 let btn_clear;
-let btn_suppr;
+let btn_Del;
 let btn_equal;
 let tab_btnExpression = [];
 let btn_Calculatrice;
@@ -8,7 +8,7 @@ let btn_Calculatrice;
 let funct_create_btn = () => {
   btn_Calculatrice = [
     "C",
-    "suppr",
+    "DEL",
     "%",
     "/",
     "7",
@@ -38,8 +38,8 @@ let funct_create_btn = () => {
     btn.appendChild(text);
     if (btn_Calculatrice[i] == "C") {
       btn_clear = btn;
-    } else if (btn_Calculatrice[i] == "suppr") {
-      btn_suppr = btn;
+    } else if (btn_Calculatrice[i] == "DEL") {
+      btn_Del = btn;
     } else if (btn_Calculatrice[i] == "=") {
       btn_equal = btn;
     } else {
@@ -69,12 +69,12 @@ divContentBtn.className = "contentBtn";
 tab_Btn.forEach((elt) => {
   elt.setAttribute(
     "style",
-    "display:inline-block; margin: 5px; text-align:center;"
+    "display:inline-block; margin: 5px; text-align:center;font-weight:bold;"
   );
   if (isNaN(elt.textContent)) {
     elt.setAttribute("style", "color:blue");
   } else {
-    elt.setAttribute("style", "color:grey");
+    elt.setAttribute("style", "color:white");
   }
 });
 
@@ -88,10 +88,9 @@ btn_clear.addEventListener("click", () => {
   inputField.value = "";
 });
 
-btn_suppr.addEventListener("click", () => {
+btn_Del.addEventListener("click", () => {
   inputField.value = inputField.value.substr(0, inputField.value.length - 1);
 });
-console.log(tab_btnExpression);
 
 tab_btnExpression.forEach((elt) => {
   elt.addEventListener("click", () => {
@@ -106,6 +105,7 @@ inputField.addEventListener("keyup", (e) => {
     inputField.value = inputField.value.replace(e.key, "");
   }
 });
+btn_equal.className = "btn_equal";
 btn_equal.addEventListener("click", () => {
   let rep;
   try {
