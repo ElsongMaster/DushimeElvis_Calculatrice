@@ -12,11 +12,11 @@ let funct_create_btn = () => {
     "7",
     "8",
     "9",
-    "÷",
+    "/",
     "4",
     "5",
     "6",
-    "x",
+    "*",
     "1",
     "2",
     "3",
@@ -43,6 +43,7 @@ let funct_create_btn = () => {
     } else if (btn_Calculatrice[i] == "=") {
       btn_equal = btn;
     } else {
+      tab_btnExpression.push(btn);
     }
 
     tab_Btn.push(btn);
@@ -81,7 +82,7 @@ document.body.append(divContentCalculate);
 
 //partie fonctionnelle
 btn_clear.addEventListener("click", () => {
-  inputField.textContent = "";
+  inputField.value = "";
 });
 
 btn_suppr.addEventListener("click", () => {
@@ -90,5 +91,20 @@ btn_suppr.addEventListener("click", () => {
     inputField.textContent.length - 1
   );
 });
+console.log(tab_btnExpression);
 
-console.log(btn_clear, btn_suppr);
+tab_btnExpression.forEach((elt) => {
+  elt.addEventListener("click", () => {
+    inputField.value += elt.textContent;
+  });
+});
+
+btn_equal.addEventListener("click", () => {
+  let rep;
+  try {
+    rep = eval(`${inputField.value}`);
+  } catch (e) {
+    rep = "error !";
+  }
+  inputField.value = rep;
+});
