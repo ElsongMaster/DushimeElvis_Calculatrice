@@ -3,6 +3,7 @@ let btn_clear;
 let btn_suppr;
 let btn_equal;
 let tab_btnExpression = [];
+
 let funct_create_btn = () => {
   let btn_Calculatrice = [
     "C",
@@ -26,7 +27,6 @@ let funct_create_btn = () => {
     "+",
     "=",
   ];
-  // let btn_operator = ["%",'+','=','x', "÷"];
   let btn;
   let text;
   let divLine;
@@ -60,7 +60,10 @@ divContentCalculate.className = "Content-calculate";
 let inputField = document.createElement("input");
 
 let divContentBtn = document.createElement("div");
-
+let bodyContent = document.createElement("div");
+bodyContent.className = "bodyContent";
+let title = document.createElement("h1");
+title.textContent = "Calculatrice du turfu";
 divContentBtn.className = "contentBtn";
 //ajout des attributs (margin, color)
 tab_Btn.forEach((elt) => {
@@ -77,8 +80,8 @@ tab_Btn.forEach((elt) => {
 
 divContentBtn.append(...tab_Btn);
 divContentCalculate.append(inputField, divContentBtn);
-
-document.body.append(divContentCalculate);
+bodyContent.append(divContentCalculate);
+document.body.append(title, bodyContent);
 
 //partie fonctionnelle
 btn_clear.addEventListener("click", () => {
@@ -99,7 +102,7 @@ tab_btnExpression.forEach((elt) => {
 btn_equal.addEventListener("click", () => {
   let rep;
   try {
-    rep = eval(`${inputField.value}`);
+    rep = Math.round(eval(`${inputField.value}`));
   } catch (e) {
     rep = "error !";
   }
