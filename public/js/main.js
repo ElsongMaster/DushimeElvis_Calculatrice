@@ -51,7 +51,6 @@ let funct_create_btn = () => {
 };
 
 funct_create_btn();
-console.log(tab_Btn);
 
 //input
 let divContentCalculate = document.createElement("div");

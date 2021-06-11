@@ -12,12 +12,14 @@ h1 {
   text-align: center;
   text-decoration: underline;
   color: rgb(119, 25, 25);
+  padding-top: 0;
 }
 .Content-calculate {
   display: flex;
   flex-direction: column;
   background-color: rgb(83, 83, 83);
-  width: 250px;
+  width: max(30%, 420px);
+  margin-bottom: 20px;
   justify-content: center;
   align-items: center;
   background-image: url("../css/img/lionBis.jpg");
@@ -36,8 +38,9 @@ input {
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
   /* grid-template-rows: 1fr 1fr 1fr 2fr; */
-  grid-auto-rows: minmax(50px, auto);
-  margin: 10px;
+  grid-auto-rows: minmax(60px, auto);
+  grid-auto-columns: minmax(100px, auto);
+  margin: 25px;
   height: auto;
   width: auto;
 }
@@ -51,4 +54,5 @@ input {
 .contentBtn button {
   border-radius: 5px;
   background-color: rgb(109, 107, 107);
+  width: 70px;
 }
