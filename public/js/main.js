@@ -1,4 +1,8 @@
 let tab_Btn = [];
+let btn_clear;
+let btn_suppr;
+let btn_equal;
+let tab_btnExpression = [];
 let funct_create_btn = () => {
   let btn_Calculatrice = [
     "C",
@@ -26,11 +30,20 @@ let funct_create_btn = () => {
   let btn;
   let text;
   let divLine;
+
   for (let i = 0; i < btn_Calculatrice.length; i++) {
     btn = document.createElement("button");
 
     text = document.createTextNode(`${btn_Calculatrice[i]}`);
     btn.appendChild(text);
+    if (btn_Calculatrice[i] == "C") {
+      btn_clear = btn;
+    } else if (btn_Calculatrice[i] == "suppr") {
+      btn_suppr = btn;
+    } else if (btn_Calculatrice[i] == "=") {
+      btn_equal = btn;
+    } else {
+    }
 
     tab_Btn.push(btn);
   }
@@ -65,3 +78,17 @@ divContentBtn.append(...tab_Btn);
 divContentCalculate.append(inputField, divContentBtn);
 
 document.body.append(divContentCalculate);
+
+//partie fonctionnelle
+btn_clear.addEventListener("click", () => {
+  inputField.textContent = "";
+});
+
+btn_suppr.addEventListener("click", () => {
+  inputField.textContent = inputField.textContent.substr(
+    0,
+    inputField.textContent.length - 1
+  );
+});
+
+console.log(btn_clear, btn_suppr);
