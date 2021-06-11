@@ -86,10 +86,7 @@ btn_clear.addEventListener("click", () => {
 });
 
 btn_suppr.addEventListener("click", () => {
-  inputField.textContent = inputField.textContent.substr(
-    0,
-    inputField.textContent.length - 1
-  );
+  inputField.value = inputField.value.substr(0, inputField.value.length - 1);
 });
 console.log(tab_btnExpression);
 
