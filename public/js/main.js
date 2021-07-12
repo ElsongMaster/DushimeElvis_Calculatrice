@@ -71,7 +71,7 @@ tab_Btn.forEach((elt) => {
     "display:inline-block; margin: 5px; text-align:center;font-weight:bold;"
   );
   if (isNaN(elt.textContent)) {
-    elt.setAttribute("style", "color:blue");
+    elt.setAttribute("style", "color:blue; font-weight:bold; font-size:1.5em;");
   } else {
     elt.setAttribute("style", "color:white");
   }
@@ -97,15 +97,7 @@ tab_btnExpression.forEach((elt) => {
   });
 });
 
-let tab_number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-//ecoute du clavier
-inputField.addEventListener("keyup", (e) => {
-  if (!tab_number.includes(e.key)) {
-    inputField.value = inputField.value.replace(e.key, "");
-  }
-});
-btn_equal.className = "btn_equal";
-btn_equal.addEventListener("click", () => {
+let calculRep = () => {
   let rep;
   try {
     rep = Math.round(eval(`${inputField.value}`));
@@ -113,4 +105,36 @@ btn_equal.addEventListener("click", () => {
     rep = "error !";
   }
   inputField.value = rep;
+};
+
+let tab_number = [
+  "0",
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "%",
+  "/",
+  "*",
+  "+",
+  "-",
+];
+//ecoute du clavier
+inputField.addEventListener("keyup", (e) => {
+  // console.log(e.key === "Enter");
+  if (!tab_number.includes(e.key)) {
+    inputField.value = inputField.value.replace(e.key, "");
+  }
+  if (e.key === "Enter") {
+    calculRep();
+  }
+});
+btn_equal.className = "btn_equal";
+btn_equal.addEventListener("click", () => {
+  calculRep();
 });

@@ -53,6 +53,6 @@ input {
 
 .contentBtn button {
   border-radius: 5px;
-  background-color: rgb(109, 107, 107);
+  background-color: transparent;
   width: 70px;
 }
